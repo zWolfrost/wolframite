@@ -1,0 +1,77 @@
+html, body
+{
+	margin: 0;
+	padding: 0;
+	height: 100%;
+
+	color: #ebebeb;
+
+	font-size: 20px;
+	font-family: serif;
+	line-height: 1.4;
+	-webkit-hyphens: auto;
+	-ms-hyphens: auto;
+	hyphens: auto;
+}
+
+body
+{
+	background-image: url("stars.gif");
+	background-size: 1000px;
+	/* image-rendering: pixelated; */
+}
+
+.banner
+{
+	background: #303030EE;
+
+	margin: 0;
+	padding: 0;
+	height: 100%;
+
+	max-width: 600px;
+	margin: 0 auto;
+	padding: 1em;
+}
+
+#bouncing-dvd-container
+{
+	height: 200px;
+	position: relative;
+	overflow: hidden;
+}
+#bouncing-dvd
+{
+	font-size: 35px;
+	font-weight: bold;
+	position: absolute;
+	white-space: nowrap;
+}
+
+
+a:link, a:visited {
+	color: #ffa500;
+	text-decoration: none;
+}
+
+#github-link:link, #github-link:visited {
+	color: #111111;
+}
+
+#discord-link:link, #discord-link:visited {
+	color: #7289da;
+}
+
+#email-link:link, #email-link:visited {
+	color: #d14836;
+}
+
+a:hover
+{
+	filter: brightness(150%);
+}
+
+a:active
+{
+	filter: brightness(75%);
+}
