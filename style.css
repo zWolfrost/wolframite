@@ -18,6 +18,11 @@ body
 	/* image-rendering: pixelated; */
 }
 
+footer
+{
+	text-align: right;
+}
+
 .banner
 {
 	background: #303030EE;
