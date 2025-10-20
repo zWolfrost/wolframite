@@ -1,44 +1,53 @@
-const text = document.getElementById("bouncing-dvd");
-const box = document.getElementById("bouncing-dvd-container");
+function animateTextDVD(el, speed) {
+	let x = 0, y = 0;
+	let dx = speed, dy = speed;
+	let colorIndex = -1;
 
-let x = 0, y = 0;
-let dx = 0.4, dy = 0.4;
-let colorIndex = -1;
+	function getNextRainbowColor() {
+		const colors = [
+			"#ff3737",
+			"#ff9a34",
+			"#ffff54",
+			"#66ff66",
+			"#66ffff",
+			"#6666ff",
+			"#ff66ff"
+		];
 
-function nextRainbowColors() {
-	const colors = [
-		"#ff3737ff",
-		"#ff9a34ff",
-		"#ffff54ff",
-		"#66FF66",
-		"#66FFFF",
-		"#6666FF",
-		"#FF66FF"
-	];
-
-	colorIndex = (colorIndex + 1) % colors.length;
-	return colors[colorIndex];
-}
-
-function animate() {
-	const boxRect = box.getBoundingClientRect();
-	const textRect = text.getBoundingClientRect();
-
-	x += dx;
-	y += dy;
-
-	if (x <= 0 || x + textRect.width >= boxRect.width) {
-		dx = -dx;
-		text.style.color = nextRainbowColors();
-	}
-	if (y <= 0 || y + textRect.height >= boxRect.height) {
-		dy = -dy;
-		text.style.color = nextRainbowColors();
+		colorIndex = (colorIndex + 1) % colors.length;
+		return colors[colorIndex];
 	}
 
-	text.style.left = x + "px";
-	text.style.top  = y + "px";
-	requestAnimationFrame(animate);
+	function bounceText() {
+		const boxRect = el.parentElement.getBoundingClientRect();
+		const textRect = el.getBoundingClientRect();
+
+		x += dx;
+		y += dy;
+
+		let changed = 0;
+
+		if (x <= 0 || x + textRect.width >= boxRect.width) {
+			changed++;
+			dx = -dx;
+			el.style.color = getNextRainbowColor();
+		}
+		if (y <= 0 || y + textRect.height >= boxRect.height) {
+			changed++;
+			dy = -dy;
+			el.style.color = getNextRainbowColor();
+		}
+
+		if (changed >= 2) {
+			alert("DVD Logo Hit the Corner! 🎉");
+		}
+
+		el.style.left = x + "px";
+		el.style.top  = y + "px";
+		requestAnimationFrame(bounceText);
+	}
+
+	bounceText();
 }
 
-animate();
+animateTextDVD(document.getElementById("bouncing-dvd"), 0.4);
