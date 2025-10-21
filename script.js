@@ -1,4 +1,9 @@
 function animateTextDVD(el, speed) {
+	const boxRect = el.parentElement.getBoundingClientRect();
+	const textRect = el.getBoundingClientRect();
+	const diffX = boxRect.width - textRect.width;
+	const diffY = boxRect.height - textRect.height;
+
 	let x = 0, y = 0;
 	let dx = speed, dy = speed;
 	let colorIndex = -1;
@@ -19,20 +24,17 @@ function animateTextDVD(el, speed) {
 	}
 
 	function bounceText() {
-		const boxRect = el.parentElement.getBoundingClientRect();
-		const textRect = el.getBoundingClientRect();
-
 		x += dx;
 		y += dy;
 
 		let changed = 0;
 
-		if (x <= 0 || x + textRect.width >= boxRect.width) {
+		if (x <= 0 || x >= diffX) {
 			changed++;
 			dx = -dx;
 			el.style.color = getNextRainbowColor();
 		}
-		if (y <= 0 || y + textRect.height >= boxRect.height) {
+		if (y <= 0 || y >= diffY) {
 			changed++;
 			dy = -dy;
 			el.style.color = getNextRainbowColor();
@@ -44,6 +46,7 @@ function animateTextDVD(el, speed) {
 
 		el.style.left = x + "px";
 		el.style.top  = y + "px";
+
 		requestAnimationFrame(bounceText);
 	}
 
