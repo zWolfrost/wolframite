@@ -1,3 +1,10 @@
+
+@font-face {
+	font-family: jrhand;
+	src: url("jrhand.ttf");
+}
+
+
 html, body
 {
 	margin: 0;
@@ -19,22 +26,15 @@ body
 	/* image-rendering: pixelated; */
 }
 
-footer
-{
-	text-align: right;
-}
 
-.banner
+#banner
 {
 	background: #303030EE;
 
-	margin: 0;
-	padding: 0;
-	min-height: 100vh;
-
-	max-width: 600px;
 	margin: 0 auto;
 	padding: 1em;
+	min-height: 100vh;
+	max-width: 600px;
 
 	box-sizing: border-box;
 }
@@ -58,29 +58,34 @@ footer
 }
 
 
-a:link, a:visited {
-	color: #ffa500;
-	text-decoration: none;
-}
-
-#github-link:link, #github-link:visited {
-	color: #111111;
-}
-
-#discord-link:link, #discord-link:visited {
-	color: #7289da;
-}
-
-#email-link:link, #email-link:visited {
-	color: #d14836;
-}
-
-a:hover
+.sticknote
 {
-	filter: brightness(150%);
+	background: repeating-linear-gradient(to bottom, #ffff88 0px, #ffff88 27px, #cccc55 28px);
+	color: black;
+	border: 2px solid #cccc55;
+	padding: 10px;
+	width: 235px;
+	height: 235px;
+	box-shadow: 5px 5px 10px #00000088;
+	font-family: jrhand, sans-serif;
+}
+.sticknote > h3 {
+	margin: 0;
+	background-color: #ffff88;
+}
+.sticknote > ul {
+	margin: 10px 0;
+	padding-left: 20px;
+	list-style-type: "–";
 }
 
-a:active
-{
-	filter: brightness(75%);
-}
+
+a:link, a:visited { text-decoration: none; }
+a:hover { filter: brightness(150%); }
+a:active { filter: brightness(75%); }
+
+a[href^="/"]:link, a[href^="/"]:visited { color: #2f1cff; text-decoration: underline; }
+a[href$="lucarusso.work"]:link, a[href$="lucarusso.work"]:visited { color: #ffa500; }
+a[href*="github.com"]:link, a[href*="github.com"]:visited { color: #111111; font-weight: bold; }
+a[href*="discord.com"]:link, a[href*="discord.com"]:visited { color: #7289da; }
+a[href^="mailto"]:link, a[href^="mailto"]:visited { color: #d14836; }
