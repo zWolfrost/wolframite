@@ -54,3 +54,19 @@ function animateTextDVD(el, speed) {
 }
 
 animateTextDVD(document.getElementById("bouncing-dvd"), 0.4);
+
+
+async function minecraftServerIsOnline() {
+	try {
+		const response = await fetch("https://api.mcsrvstat.us/3/mc.lucarusso.work")
+		const data = await response.json();
+		return data.online;
+	} catch {
+		return false;
+	}
+}
+
+minecraftServerIsOnline().then(isOnline => {
+	const mcDesc = document.querySelector('a[href*="mc.lucarusso.work"]').parentElement;
+	mcDesc.innerHTML += isOnline ? " <b>Currently online!</b>" : " Currently offline.";
+});
