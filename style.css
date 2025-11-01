@@ -1,12 +1,10 @@
-
 @font-face {
 	font-family: jrhand;
 	src: url("jrhand.ttf");
 }
 
 
-html, body
-{
+html, body {
 	margin: 0;
 	padding: 0;
 	min-height: 100vh;
@@ -19,16 +17,8 @@ html, body
 	line-height: 1.4;
 }
 
-body
-{
-	background-image: url("stars.gif");
-	background-size: 1000px;
-	/* image-rendering: pixelated; */
-}
 
-
-#banner
-{
+#banner {
 	background: #303030EE;
 
 	margin: 0 auto;
@@ -40,15 +30,13 @@ body
 }
 
 
-#bouncing-dvd-container
-{
+#bouncing-dvd-container {
 	height: 200px;
 	position: relative;
 	overflow: hidden;
 	border: 2px solid #666666;
 }
-#bouncing-dvd
-{
+#bouncing-dvd {
 	font-size: 35px;
 	font-weight: bold;
 	position: absolute;
@@ -58,8 +46,7 @@ body
 }
 
 
-.sticknote
-{
+.sticknote {
 	background: repeating-linear-gradient(to bottom, #ffff88 0px, #ffff88 27px, #cccc55 28px);
 	color: black;
 	border: 2px solid #cccc55;
