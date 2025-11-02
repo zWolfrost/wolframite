@@ -6,6 +6,7 @@ function animateTextDVD(el, speed) {
 
 	let x = 0, y = 0;
 	let dx = speed, dy = speed;
+	let colorIndex = 0;
 
 	function setNextRainbowColor(el) {
 		const colors = [
@@ -18,12 +19,13 @@ function animateTextDVD(el, speed) {
 			"#ff66ff"
 		];
 
-		let colorIndex = 0;
+		let newColorIndex = 0;
 
 		do {
-			colorIndex = Math.floor(Math.random() * colors.length);
-		} while (el.style.color == colors[colorIndex])
+			newColorIndex = Math.floor(Math.random() * colors.length);
+		} while (colorIndex == newColorIndex)
 
+		colorIndex = newColorIndex;
 		el.style.color = colors[colorIndex];
 	}
 
