@@ -8,16 +8,8 @@ function animateTextDVD(el, speed) {
 	let dx = speed, dy = speed;
 	let colorIndex = 0;
 
-	function setNextRainbowColor(el) {
-		const colors = [
-			"#ff3737",
-			"#ff9a34",
-			"#ffff54",
-			"#66ff66",
-			"#66ffff",
-			"#6666ff",
-			"#ff66ff"
-		];
+	function setRandomRainbowColor(el) {
+		const colors = ["#f33", "#f93", "#ff5", "#6f6", "#6ff", "#66f", "#f6f"];
 
 		let newColorIndex = 0;
 
@@ -33,20 +25,16 @@ function animateTextDVD(el, speed) {
 		x += dx;
 		y += dy;
 
-		let changed = 0;
-
 		if (x <= 0 || x >= diffX) {
-			changed++;
 			dx = -dx;
-			setNextRainbowColor(el);
+			setRandomRainbowColor(el);
 		}
 		if (y <= 0 || y >= diffY) {
-			changed++;
 			dy = -dy;
-			setNextRainbowColor(el);
+			setRandomRainbowColor(el);
 		}
 
-		if (changed >= 2) {
+		if ((x <= 0 || x >= diffX) && (y <= 0 || y >= diffY)) {
 			alert("DVD Logo Hit the Corner! 🎉");
 		}
 
@@ -62,7 +50,7 @@ function animateTextDVD(el, speed) {
 animateTextDVD(document.getElementById("bouncing-dvd"), 0.4);
 
 
-async function minecraftServerStatus(url) {
+async function fetchMinecraftServerStatus(url) {
 	try {
 		const res = await fetch("https://api.mcsrvstat.us/3/" + url);
 		return await res.json();
@@ -71,7 +59,7 @@ async function minecraftServerStatus(url) {
 	}
 }
 
-minecraftServerStatus("mc.lucarusso.work").then(status => {
+fetchMinecraftServerStatus("mc.lucarusso.work").then(status => {
 	const mcDesc = document.querySelector('a[href*="mc.lucarusso.work"] + label');
 	mcDesc.innerHTML = status?.online ? `<b>Currently online! (${status.protocol.name})</b>. Feel free to join!` : "Currently offline.";
 });
