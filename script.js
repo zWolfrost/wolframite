@@ -73,5 +73,5 @@ async function minecraftServerStatus(url) {
 
 minecraftServerStatus("mc.lucarusso.work").then(status => {
 	const mcDesc = document.querySelector('a[href*="mc.lucarusso.work"] + label');
-	mcDesc.innerHTML = status?.online ? `<b>Currently online! (${status.protocol.name})</b>` : "Currently offline.";
+	mcDesc.innerHTML = status?.online ? `<b>Currently online! (${status.protocol.name})</b>. Feel free to join!` : "Currently offline.";
 });
