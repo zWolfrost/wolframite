@@ -76,3 +76,25 @@ a[href$="lucarusso.work"]:link, a[href$="lucarusso.work"]:visited { color: #ffa5
 a[href*="github.com"]:link, a[href*="github.com"]:visited { color: #111111; font-weight: bold; }
 a[href*="discord.com"]:link, a[href*="discord.com"]:visited { color: #7289da; }
 a[href^="mailto"]:link, a[href^="mailto"]:visited { color: #d14836; }
+
+
+button {
+	display: block;
+	margin: 0 auto;
+
+	background-color: #444444;
+	color: #ebebeb;
+	border: 2px solid #666666;
+	padding: 12px 20px 8px 20px;
+
+	font-size: 18px;
+	cursor: pointer;
+}
+button:hover { background-color: #555555; }
+button:active { background-color: #333333; }
+#hi-count {
+	display: block;
+	font-size: 30px;
+	font-weight: bold;
+	padding-top: 5px;
+}
