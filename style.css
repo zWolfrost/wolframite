@@ -92,6 +92,7 @@ button {
 }
 button:hover { background-color: #555555; }
 button:active { background-color: #333333; }
+button:has(#hi-count:empty) { display: none; }
 #hi-count {
 	display: block;
 	font-size: 30px;

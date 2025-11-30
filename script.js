@@ -73,9 +73,7 @@ async function updateHiCount(add = false) {
 		const data = await res.json();
 
 		const hiCount = data.counter;
-		if (hiCount !== null) {
-			document.getElementById("hi-count").innerText = hiCount;
-		}
+		if (hiCount) document.getElementById("hi-count").innerText = hiCount;
 	} catch {
 		return null;
 	}
