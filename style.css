@@ -31,18 +31,20 @@ html, body {
 
 
 #bouncing-dvd-container {
+	container-type: inline-size;
 	height: 200px;
 	position: relative;
 	overflow: hidden;
 	border: 2px solid #666666;
 }
 #bouncing-dvd {
-	font-size: 35px;
+	font-size: calc(100cqw / 16);
 	font-weight: bold;
 	position: absolute;
 	white-space: nowrap;
 	line-height: 0px;
-	padding: 13px 0px 25px 0px;
+	padding-top: 2.5%;
+	padding-bottom: 4.6%;
 }
 
 

@@ -38,6 +38,11 @@ function animateTextDVD(el, speed) {
 			alert("DVD Logo Hit the Corner! 🎉");
 		}
 
+		if (x > diffX + speed || y > diffY + speed) {
+			x = y = 0
+			dx = dy = speed
+		}
+
 		el.style.left = x + "px";
 		el.style.top  = y + "px";
 
