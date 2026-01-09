@@ -43,8 +43,7 @@ function animateTextDVD(el, speed) {
 			dx = dy = speed
 		}
 
-		el.style.left = x + "px";
-		el.style.top  = y + "px";
+		el.style.transform = `translate(${x}px, ${y}px)`;
 
 		requestAnimationFrame(bounceText);
 	}
