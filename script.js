@@ -2,6 +2,14 @@ function animateTextDVD(el, speed) {
 	let x = 0, y = 0;
 	let dx = speed, dy = speed;
 	let colorIndex = 0;
+	let boxRect, textRect, diffX, diffY;
+
+	function calculateBounds() {
+		boxRect = el.parentElement.getBoundingClientRect();
+		textRect = el.getBoundingClientRect();
+		diffX = boxRect.width - textRect.width;
+		diffY = boxRect.height - textRect.height;
+	}
 
 	function setRandomRainbowColor(el) {
 		const colors = ["#f33", "#f93", "#ff5", "#6f6", "#6ff", "#66f", "#f6f"];
@@ -17,11 +25,6 @@ function animateTextDVD(el, speed) {
 	}
 
 	function bounceText() {
-		let boxRect = el.parentElement.getBoundingClientRect();
-		let textRect = el.getBoundingClientRect();
-		let diffX = boxRect.width - textRect.width;
-		let diffY = boxRect.height - textRect.height;
-
 		x += dx;
 		y += dy;
 
@@ -43,11 +46,13 @@ function animateTextDVD(el, speed) {
 			dx = dy = speed
 		}
 
-		el.style.left = x + "px";
-		el.style.top  = y + "px";
+		el.style.transform = `translate(${x}px, ${y}px)`;
 
 		requestAnimationFrame(bounceText);
 	}
+
+	window.addEventListener("resize", calculateBounds);
+	calculateBounds();
 
 	bounceText();
 }
