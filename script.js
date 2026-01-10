@@ -55,7 +55,7 @@ function animateTextDVD(el, speed) {
 
 	document.getElementById("noclick-badge").addEventListener("click", () => {
 		textIsLocked = false;
-		el.parentElement.style.border = "none";
+		el.parentElement.style.borderColor = "transparent";
 	});
 }
 
