@@ -34,7 +34,8 @@ html, body {
 	container-type: inline-size;
 	height: 200px;
 	position: relative;
-	overflow: hidden;
+	box-sizing: border-box;
+	overflow: visible;
 	border: 2px solid #666666;
 }
 #bouncing-dvd {
@@ -49,7 +50,7 @@ html, body {
 
 
 a:link, a:visited { text-decoration: none; }
-a:hover { filter: brightness(150%); }
+a:hover { filter: brightness(150%); cursor: pointer; }
 a:active { filter: brightness(75%); }
 
 a[href^="/"]:link, a[href^="/"]:visited { color: #2f1cff; text-decoration: underline; }

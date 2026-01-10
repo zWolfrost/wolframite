@@ -2,6 +2,7 @@ function animateTextDVD(el, speed) {
 	let x = 0, y = 0;
 	let dx = speed, dy = speed;
 	let colorIndex = 0;
+	let textIsLocked = true
 
 	function setRandomRainbowColor(el) {
 		const colors = ["#f33", "#f93", "#ff5", "#6f6", "#6ff", "#66f", "#f6f"];
@@ -25,22 +26,24 @@ function animateTextDVD(el, speed) {
 		x += dx;
 		y += dy;
 
-		if (x <= 0 || x >= diffX) {
-			dx = -dx;
-			setRandomRainbowColor(el);
-		}
-		if (y <= 0 || y >= diffY) {
-			dy = -dy;
-			setRandomRainbowColor(el);
-		}
+		if (textIsLocked) {
+			if (x <= 0 || x >= diffX) {
+				dx = -dx;
+				setRandomRainbowColor(el);
+			}
+			if (y <= 0 || y >= diffY) {
+				dy = -dy;
+				setRandomRainbowColor(el);
+			}
 
-		if ((x <= 0 || x >= diffX) && (y <= 0 || y >= diffY)) {
-			alert("DVD Logo Hit the Corner! 🎉");
-		}
+			if ((x <= 0 || x >= diffX) && (y <= 0 || y >= diffY)) {
+				alert("DVD Logo Hit the Corner! 🎉");
+			}
 
-		if (x > diffX + speed || y > diffY + speed) {
-			x = y = 0
-			dx = dy = speed
+			if (x > diffX + speed || y > diffY + speed) {
+				x = y = 0
+				dx = dy = speed
+			}
 		}
 
 		el.style.transform = `translate(${x}px, ${y}px)`;
@@ -49,6 +52,11 @@ function animateTextDVD(el, speed) {
 	}
 
 	bounceText();
+
+	document.getElementById("noclick-badge").addEventListener("click", () => {
+		textIsLocked = false;
+		el.parentElement.style.border = "none";
+	});
 }
 
 animateTextDVD(document.getElementById("bouncing-dvd"), 0.4);
