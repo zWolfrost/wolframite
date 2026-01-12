@@ -54,7 +54,7 @@ a:hover { filter: brightness(150%); cursor: pointer; }
 a:active { filter: brightness(75%); }
 
 a[href^="/"]:link, a[href^="/"]:visited { color: #2f1cff; text-decoration: underline; }
-a[href$="lucarusso.work"]:link, a[href$="lucarusso.work"]:visited { color: #ffa500; }
+a[href$="wolframite.cc"]:link, a[href$="wolframite.cc"]:visited { color: #ffa500; }
 a[href*="github.com"]:link, a[href*="github.com"]:visited { color: #111111; font-weight: bold; }
 a[href*="discord.com"]:link, a[href*="discord.com"]:visited { color: #7289da; }
 a[href^="mailto"]:link, a[href^="mailto"]:visited { color: #d14836; }
