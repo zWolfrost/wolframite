@@ -76,20 +76,3 @@ fetchMinecraftServerStatus("mc.lucarusso.work").then(status => {
 	const mcDesc = document.querySelector('a[href*="mc.lucarusso.work"] + label');
 	mcDesc.innerHTML = status?.online ? `<b>Currently online! (${status.protocol.name})</b>. Feel free to join! The password is "mc.lr"` : "Currently offline.";
 });
-
-
-
-async function updateHiCount(add = false) {
-	try {
-		const res = await fetch("https://dynamite.lucarusso.work/api/misc/count?add=" + (add ? "1" : "0"));
-		const data = await res.json();
-
-		const hiCount = data.counter;
-		if (hiCount) document.getElementById("hi-count").innerText = hiCount;
-	} catch {
-		return null;
-	}
-}
-
-updateHiCount();
-document.getElementById("hi-button").addEventListener("click", () => updateHiCount(true));
