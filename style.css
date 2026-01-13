@@ -45,7 +45,12 @@ html, body {
 	white-space: nowrap;
 	line-height: 0px;
 	padding-top: 2.5%;
-	padding-bottom: 4.6%;
+	padding-bottom: 3%;
+}
+
+
+li {
+	margin: 0.4em 0px;
 }
 
 
@@ -58,3 +63,8 @@ a[href$="wolframite.cc"]:link, a[href$="wolframite.cc"]:visited { color: #ffa500
 a[href*="github.com"]:link, a[href*="github.com"]:visited { color: #111111; font-weight: bold; }
 a[href*="discord.com"]:link, a[href*="discord.com"]:visited { color: #7289da; }
 a[href^="mailto"]:link, a[href^="mailto"]:visited { color: #d14836; }
+
+
+footer {
+	margin-top: 40px;
+}
