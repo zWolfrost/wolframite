@@ -1,7 +1,7 @@
 function animateTextDVD(el, speed) {
-	let x = 0, y = 0;
 	let dp = 0.5;
 	let dx = dp, dy = dp;
+	let x = dx, y = dy;
 	let colorIndex = 0;
 	let textIsLocked = true
 	let last = performance.now();
