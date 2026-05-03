@@ -1,10 +1,8 @@
 function animateTextDVD(el, speed) {
 	let x = 0, y = 0;
-	let dp = 0.5;
-	let dx = dp, dy = dp;
+	let dx = speed, dy = speed;
 	let colorIndex = 0;
 	let textIsLocked = true
-	let last = performance.now();
 
 	function setRandomRainbowColor(el) {
 		const colors = ["#f33", "#f93", "#ff5", "#6f6", "#6ff", "#66f", "#f6f"];
@@ -20,17 +18,13 @@ function animateTextDVD(el, speed) {
 	}
 
 	function bounceText() {
-		let now = performance.now();
-		let delta = now - last;
-		last = now;
-
 		let boxRect = el.parentElement.getBoundingClientRect();
 		let textRect = el.getBoundingClientRect();
 		let diffX = boxRect.width - textRect.width;
 		let diffY = boxRect.height - textRect.height;
 
-		x += dx * delta * speed;
-		y += dy * delta * speed;
+		x += dx;
+		y += dy;
 
 		if (textIsLocked) {
 			if (x <= 0 || x >= diffX) {
@@ -46,9 +40,9 @@ function animateTextDVD(el, speed) {
 				alert("DVD Logo Hit the Corner! 🎉");
 			}
 
-			if (x > diffX + dp * delta * speed || y > diffY + dp * delta * speed) {
+			if (x > diffX + speed || y > diffY + speed) {
 				x = y = 0
-				dx = dy = dp
+				dx = dy = speed
 			}
 		}
 
@@ -66,7 +60,7 @@ function animateTextDVD(el, speed) {
 	});
 }
 
-animateTextDVD(document.getElementById("bouncing-dvd"), 0.1);
+animateTextDVD(document.getElementById("bouncing-dvd"), 0.4);
 
 
 

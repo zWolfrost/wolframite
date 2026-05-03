@@ -19,13 +19,11 @@ html, body {
 
 
 #banner {
-	position: relative;
-	z-index: 1;
-	background: linear-gradient(180deg, #303030EE 0%, #303030EE 90%, transparent 100%);
+	background: #303030EE;
 
 	margin: 0 auto;
 	padding: 1em;
-	min-height: 110vh;
+	min-height: 100vh;
 	max-width: 600px;
 
 	box-sizing: border-box;
@@ -50,13 +48,6 @@ html, body {
 	padding-bottom: 3%;
 }
 
-#end {
-	position: relative;
-	text-align: right;
-	margin-right: 8px;
-	user-select: none;
-}
-
 
 li {
 	margin: 0.4em 0px;
@@ -75,5 +66,5 @@ a[href^="mailto"]:link, a[href^="mailto"]:visited { color: #d14836; }
 
 
 footer {
-	margin-top: 35px;
+	margin-top: 38px;
 }
