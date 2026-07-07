@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<meta charset="UTF-8">
+		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=0.75">
 		<link rel="icon" type="image/png" href="favicon.png">
 		<title>Wolframite Stash</title>
 
 		<link rel="stylesheet" href="style.css">
 		<script defer src="script.js"></script>
+
+		<link rel="preload" href="https://deltarune.wiki/images/Deltarune_piano_collections_by_trevor_alan_gomes_music.ogg" as="audio"/>
 
 		<base target="_blank">
 
@@ -30,6 +32,10 @@
 					line-height: unset;
 					padding: 5px;
 					color: #ffa500;
+				}
+
+				#star {
+					display: none;
 				}
 
 				a[href*="wolframite.cc"] + label {
@@ -69,6 +75,8 @@
 				<img src="badges/twopaws.gif" height="31" width="88">
 			</footer>
 		</div>
+
+		<button id="star"></button>
 
 		<div id="end"><q><i>And the end came thus.</i></q></div>
 	</body>

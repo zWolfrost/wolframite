@@ -77,3 +77,19 @@ fetchMinecraftServerStatus("mc.wolframite.cc").then(status => {
 	const mcDesc = document.querySelector('a[href*="mc.wolframite.cc"] + label');
 	mcDesc.innerHTML = status?.online ? `<b>Currently online! (${status.protocol.name})</b>. Feel free to join, the password is "mc.wlf"` : "Currently offline.";
 });
+
+
+
+document.getElementById("star").addEventListener("click", e => {
+	MUSIC = [
+		"https://deltarune.wiki/images/Deltarune_piano_collections_by_trevor_alan_gomes_music.ogg"
+	]
+
+	AUDIO_EL = document.createElement("audio");
+	AUDIO_EL.src = MUSIC[Math.floor(Math.random() * MUSIC.length)];
+	AUDIO_EL.volume = 0.2;
+	AUDIO_EL.autoplay = true;
+	AUDIO_EL.loop = true;
+
+	e.target.replaceWith(AUDIO_EL);
+});
