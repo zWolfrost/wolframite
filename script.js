@@ -89,7 +89,6 @@ document.getElementById("star").addEventListener("click", e => {
 	AUDIO_EL.src = MUSIC[Math.floor(Math.random() * MUSIC.length)];
 	AUDIO_EL.volume = 0.2;
 	AUDIO_EL.autoplay = true;
-	AUDIO_EL.loop = true;
 
 	e.target.replaceWith(AUDIO_EL);
 });
