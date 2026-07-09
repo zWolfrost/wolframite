@@ -54,7 +54,6 @@ html, body {
 	position: relative;
 	text-align: right;
 	margin-right: 8px;
-	user-select: none;
 }
 
 .star {

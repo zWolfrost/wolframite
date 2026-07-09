@@ -93,5 +93,7 @@ document.querySelectorAll(".star").forEach(button => {
 		for (const el of document.getElementsByClassName("star")) {
 			el.style.display = "none";
 		}
+
+		document.querySelector("#end i").innerHTML = e.target.dataset.title;
 	});
 });
