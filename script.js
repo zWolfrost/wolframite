@@ -86,13 +86,16 @@ document.querySelectorAll(".star").forEach(button => {
 		AUDIO_EL.src = `https://crosscentral.wolframite.cc/stars/${e.target.dataset.src}?inline=1`;
 		AUDIO_EL.preload = "auto";
 		AUDIO_EL.volume = 0.15;
-		AUDIO_EL.autoplay = true;
+		AUDIO_EL.addEventListener("canplaythrough", () => AUDIO_EL.play());
+		AUDIO_EL.addEventListener("ended",
+			() => e.target.addEventListener("animationiteration",
+				() => e.target.classList.remove("star-glow"), { once: true }
+			), { once: true }
+		);
 
 		document.body.appendChild(AUDIO_EL);
 
-		for (const el of document.getElementsByClassName("star")) {
-			el.style.display = "none";
-		}
+		for (const el of document.getElementsByClassName("star")) if (el !== e.target) el.classList.remove("star-glow");
 
 		document.querySelector("#end i").innerHTML = decodeURIComponent(e.target.dataset.src).split(".").slice(0, -1).join(".").replace("-", "—");
 	});

@@ -57,12 +57,40 @@ html, body {
 }
 
 .star {
+	--star-glow: 0.0;
+
 	position: absolute;
-	opacity: 0;
 	height: 20px;
 	width: 20px;
 	padding: 0px;
 	cursor: pointer;
+	border-radius: 50%;
+
+	border: none;
+	pointer-events: none;
+
+	background: rgb(250, 255, 0, calc(0.27 * var(--star-glow)));
+	box-shadow: 0px 0px 20px 0px rgb(250, 255, 0, var(--star-glow));
+
+	animation: star-glow 2s 1;
+}
+
+.star-glow {
+	pointer-events: auto;
+
+	animation: star-glow 2s infinite;
+}
+
+@property --star-glow {
+	syntax: "<number>";
+	inherits: false;
+	initial-value: 0;
+}
+
+@keyframes star-glow {
+	0% { --star-glow: 0; }
+	50% { --star-glow: 1; }
+	100% { --star-glow: 0; }
 }
 
 
