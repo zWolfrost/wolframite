@@ -85,7 +85,7 @@ document.querySelectorAll(".star").forEach(button => {
 		AUDIO_EL = document.createElement("audio");
 		AUDIO_EL.src = `https://crosscentral.wolframite.cc/stars/${e.target.dataset.src}?inline=1`;
 		AUDIO_EL.preload = "auto";
-		AUDIO_EL.volume = 0.2;
+		AUDIO_EL.volume = 0.15;
 		AUDIO_EL.autoplay = true;
 
 		document.body.appendChild(AUDIO_EL);
