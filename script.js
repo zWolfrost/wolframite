@@ -80,15 +80,18 @@ fetchMinecraftServerStatus("mc.wolframite.cc").then(status => {
 
 
 
-document.getElementById("star").addEventListener("click", e => {
-	MUSIC = [
-		"https://deltarune.wiki/images/Deltarune_piano_collections_by_trevor_alan_gomes_music.ogg"
-	]
+document.querySelectorAll(".star").forEach(button => {
+	button.addEventListener("click", e => {
+		AUDIO_EL = document.createElement("audio");
+		AUDIO_EL.src = `https://crosscentral.wolframite.cc/stars/${e.target.dataset.src}?inline=1`;
+		AUDIO_EL.preload = "auto";
+		AUDIO_EL.volume = 0.2;
+		AUDIO_EL.autoplay = true;
 
-	AUDIO_EL = document.createElement("audio");
-	AUDIO_EL.src = MUSIC[Math.floor(Math.random() * MUSIC.length)];
-	AUDIO_EL.volume = 0.2;
-	AUDIO_EL.autoplay = true;
+		document.body.appendChild(AUDIO_EL);
 
-	e.target.replaceWith(AUDIO_EL);
+		for (const el of document.getElementsByClassName("star")) {
+			el.style.display = "none";
+		}
+	});
 });
