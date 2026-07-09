@@ -94,6 +94,6 @@ document.querySelectorAll(".star").forEach(button => {
 			el.style.display = "none";
 		}
 
-		document.querySelector("#end i").innerHTML = e.target.dataset.title;
+		document.querySelector("#end i").innerHTML = decodeURIComponent(e.target.dataset.src).split(".").slice(0, -1).join(".").replace("-", "—");
 	});
 });
