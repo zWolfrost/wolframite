@@ -96,6 +96,7 @@ document.querySelectorAll(".star").forEach(button => {
 		document.body.appendChild(AUDIO_EL);
 
 		for (const el of document.getElementsByClassName("star")) if (el !== e.target) el.classList.remove("star-glow");
+		e.target.style.pointerEvents = "none";
 
 		document.querySelector("#end i").innerHTML = decodeURIComponent(e.target.dataset.src).split(".").slice(0, -1).join(".").replace("-", "—");
 	});
