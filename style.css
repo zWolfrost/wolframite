@@ -69,10 +69,22 @@ html, body {
 	border: none;
 	pointer-events: none;
 
+	animation: star-glow 2s 1;
+}
+
+.star-yellow-big {
+	background: rgb(250, 255, 0, calc(0.27 * var(--star-glow)));
+	box-shadow: 0px 0px 35px 5px rgb(250, 255, 0, var(--star-glow));
+}
+
+.star-yellow-small {
 	background: rgb(250, 255, 0, calc(0.27 * var(--star-glow)));
 	box-shadow: 0px 0px 20px 0px rgb(250, 255, 0, var(--star-glow));
+}
 
-	animation: star-glow 2s 1;
+.star-cyan {
+	background: rgb(0, 243, 255, calc(0.27 * var(--star-glow)));
+	box-shadow: 0px 0px 35px 5px rgb(0, 243, 255, var(--star-glow));
 }
 
 .star-glow {

@@ -82,20 +82,26 @@ fetchMinecraftServerStatus("mc.wolframite.cc").then(status => {
 
 document.querySelectorAll(".star").forEach(button => {
 	button.addEventListener("click", e => {
-		AUDIO_EL = document.createElement("audio");
+		let toggle_glow = () => {for (const el of document.getElementsByClassName("star")) if (el !== e.target) el.classList.toggle("star-glow");}
+
+		AUDIO_EL = document.getElementById("star-audio");
 		AUDIO_EL.src = `https://crosscentral.wolframite.cc/stars/${e.target.dataset.src}?inline=1`;
-		AUDIO_EL.preload = "auto";
-		AUDIO_EL.volume = 0.15;
-		AUDIO_EL.addEventListener("canplaythrough", () => AUDIO_EL.play());
+		AUDIO_EL.volume = 0.14;
+
+		AUDIO_EL.addEventListener("canplaythrough", () => AUDIO_EL.play(), { once: true });
 		AUDIO_EL.addEventListener("ended",
 			() => e.target.addEventListener("animationiteration",
-				() => e.target.classList.remove("star-glow"), { once: true }
+				() => {
+					e.target.style.pointerEvents = "";
+					toggle_glow();
+				}, { once: true }
 			), { once: true }
 		);
 
-		document.body.appendChild(AUDIO_EL);
+		e.target.addEventListener("animationiteration", ()	=> {
+			toggle_glow();
+		}, { once: true });
 
-		for (const el of document.getElementsByClassName("star")) if (el !== e.target) el.classList.remove("star-glow");
 		e.target.style.pointerEvents = "none";
 
 		document.querySelector("#end i").innerHTML = decodeURIComponent(e.target.dataset.src).split(".").slice(0, -1).join(".").replace("-", "—");
