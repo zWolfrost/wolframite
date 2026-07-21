@@ -56,7 +56,7 @@ html, body {
 	margin-right: 8px;
 }
 
-@media only screen {
+@media only screen and (min-width: 1700px) {
 	.star {
 		display: block !important;
 	}
