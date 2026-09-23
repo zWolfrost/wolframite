@@ -75,7 +75,7 @@ async function fetchMinecraftServerStatus(url) {
 
 fetchMinecraftServerStatus("mc.wolframite.cc").then(status => {
 	const mcDesc = document.querySelector('a[href*="mc.wolframite.cc"] + label');
-	mcDesc.innerHTML = status?.online ? `<b>Currently online! (${status.protocol.name})</b>. Feel free to join, the password is "mc.wlf"` : "Currently offline.";
+	mcDesc.innerHTML = status?.online ? `<b>Currently online!</b>. Feel free to join, the password is "zwei"` : "Currently offline.";
 });
 
 
